@@ -36,6 +36,7 @@ The Customer Management API is a Spring Boot application that provides endpoints
    ```bash
    mvn clean package
    ```
+
 3. Update the `application.properties` file with your PostgreSQL database credentials:
    
    ```properties
