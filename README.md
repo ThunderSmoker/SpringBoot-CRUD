@@ -36,7 +36,14 @@ The Customer Management API is a Spring Boot application that provides endpoints
    ```bash
    mvn clean package
    ```
-3.Run the Application
+3. Update the `application.properties` file with your PostgreSQL database credentials:
+   
+   ```properties
+   spring.datasource.url=jdbc:postgresql://localhost:5432/YourDatabaseName
+   spring.datasource.username=your-username
+   spring.datasource.password=your-password
+   ```
+4.Run the Application
    ```bash
    mvn spring-boot:run
    ```
@@ -50,3 +57,14 @@ The Customer Management API is a Spring Boot application that provides endpoints
 | GET    | /api/customers/{id}        | Retrieve a specific customer.    |
 | PUT    | /api/customers/{id}        | Update an existing customer.     |
 | DELETE | /api/customers/{id}        | Delete a customer record.        |
+
+
+#Request Body format(JSON)
+  ```bash
+  {
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "age": 30
+  }
+  ```
+
