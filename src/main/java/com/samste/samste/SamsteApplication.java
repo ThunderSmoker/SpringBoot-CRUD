@@ -8,33 +8,31 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
-@RestController
-@RequestMapping("/api/v1/customer")
 public class SamsteApplication {
-	private final CustomerRepository customerRepository;
-
-	public SamsteApplication(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
-	}
+//	private final CustomerRepository customerRepository;
+//
+//	public SamsteApplication(CustomerRepository customerRepository) {
+//		this.customerRepository = customerRepository;
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SamsteApplication.class, args);
 	}
-	@GetMapping
-	public List<Customer> getCustomers(){
-		return  customerRepository.findAll();
-	}
-
-	record NewCustomerRequest(String name, String email, Integer age){}
-	@PostMapping
-	public Customer addCustomer(@RequestBody NewCustomerRequest request){
-		Customer customer=new Customer();
-		customer.setAge(request.age);
-		customer.setEmail(request.email);
-		customer.setName(request.name);
-		customerRepository.save(customer);
-		return customer;
-	}
+//	@GetMapping
+//	public List<Customer> getCustomers(){
+//		return  customerRepository.findAll();
+//	}
+//
+//	record NewCustomerRequest(String name, String email, Integer age){}
+//	@PostMapping
+//	public Customer addCustomer(@RequestBody NewCustomerRequest request){
+//		Customer customer=new Customer();
+//		customer.setAge(request.age);
+//		customer.setEmail(request.email);
+//		customer.setName(request.name);
+//		customerRepository.save(customer);
+//		return customer;
+//	}
 	//My method
 //    record DeleteCustomer(Integer id){}
 //	@DeleteMapping
@@ -44,27 +42,27 @@ public class SamsteApplication {
 //	}
 
 	//Amigo Method
-	@DeleteMapping("{customerId}")
-	public String deleteCustomer(@PathVariable("customerId") Integer id){
-		customerRepository.deleteById(id);
-		return "Customer Deleted";
-	}
-
-	@PutMapping("{customerId}")
-	public Customer updateCustomer(@PathVariable("customerId") Integer id,@RequestBody NewCustomerRequest request){
-		Customer customer=customerRepository.findById(id).orElse(null);
-		if(customer==null){
-			return null;
-		}
-		else{
-			customer.setAge(request.age);
-			customer.setEmail(request.email);
-			customer.setName(request.name);
-			return customerRepository.save(customer);
-
-		}
-
-	}
+//	@DeleteMapping("{customerId}")
+//	public String deleteCustomer(@PathVariable("customerId") Integer id){
+//		customerRepository.deleteById(id);
+//		return "Customer Deleted";
+//	}
+//
+//	@PutMapping("{customerId}")
+//	public Customer updateCustomer(@PathVariable("customerId") Integer id,@RequestBody NewCustomerRequest request){
+//		Customer customer=customerRepository.findById(id).orElse(null);
+//		if(customer==null){
+//			return null;
+//		}
+//		else{
+//			customer.setAge(request.age);
+//			customer.setEmail(request.email);
+//			customer.setName(request.name);
+//			return customerRepository.save(customer);
+//
+//		}
+//
+//	}
 
 //	@GetMapping
 //	public Customer home(){
